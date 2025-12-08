@@ -91,7 +91,3 @@ Aplikasi ini membantu meningkatkan kualitas pelayanan publik di Direktorat Metro
 
 ---
 
-## 📦 Instalasi  
-Ikuti langkah berikut untuk menjalankan aplikasi:
-
-### **1. Clone Repository**
