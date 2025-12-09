@@ -1,39 +1,46 @@
 <div align="center">
-  <a href="https://github.com/username/repo-name">
-  </a>
+  <img src="https://placehold.co/150x150/2c3e50/ffffff?text=App+Antrian" alt="Logo App Antrian" width="140" height="140">
 
-  <h1 align="center">📌 App-Antrian</h1>
+  <h1 align="center">📌 App-Antrian Metrologi</h1>
 
   <p align="center">
-    <b>Aplikasi Antrian Terintegrasi untuk Direktorat Metrologi</b>
-    <br />
+    <b>Sistem Antrian Terintegrasi untuk Pelayanan Publik</b>
+    <br>
     Efisien • Real-Time • Modern
-    <br />
-    <br />
-    <a href="#-demo-preview">Lihat Demo</a>
-    ·
-    <a href="#-laporan-bug">Lapor Bug</a>
-    ·
-    <a href="#-request-fitur">Request Fitur</a>
   </p>
-  
+
   <p align="center">
-    <img src="https://img.shields.io/badge/STATUS-ACTIVE-brightgreen?style=for-the-badge&logo=github" alt="Status" />
-    <img src="https://img.shields.io/badge/PLATFORM-ELECTRON-blue?style=for-the-badge&logo=electron" alt="Platform" />
-    <img src="https://img.shields.io/badge/BUILD-NODE.JS-green?style=for-the-badge&logo=nodedotjs" alt="Build" />
-    <img src="https://img.shields.io/badge/LICENSE-MIT-orange?style=for-the-badge" alt="License" />
+    <a href="https://github.com/features">
+      <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge&logo=github" alt="Status Active">
+    </a>
+    <a href="https://www.electronjs.org/">
+      <img src="https://img.shields.io/badge/Platform-Electron-blue?style=for-the-badge&logo=electron&logoColor=white" alt="Platform Electron">
+    </a>
+    <a href="https://nodejs.org/">
+      <img src="https://img.shields.io/badge/Build-Node.js-green?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Build Nodejs">
+    </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+      <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=black" alt="Javascript">
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="#-deskripsi-singkat">📝 Deskripsi</a> • 
+    <a href="#-teknologi-yang-digunakan">🛠 Teknologi</a> • 
+    <a href="#-fitur-utama">🚀 Fitur</a> • 
+    <a href="#-galeri-antarmuka">📸 Galeri</a>
   </p>
 </div>
 
 ---
 
 <details>
-  <summary><b>📚 Daftar Isi (Klik untuk memperluas)</b></summary>
+  <summary><b>📚 Daftar Isi (Klik untuk membuka)</b></summary>
   <br>
   <ol>
     <li><a href="#-deskripsi-singkat">Deskripsi Singkat</a></li>
-    <li><a href="#-struktur-sistem-aplikasi">Struktur Sistem</a></li>
-    <li><a href="#-teknologi-yang-digunakan">Teknologi</a></li>
+    <li><a href="#-struktur-sistem-aplikasi">Struktur Sistem Aplikasi</a></li>
+    <li><a href="#-teknologi-yang-digunakan">Teknologi yang Digunakan</a></li>
     <li><a href="#-fitur-utama">Fitur Utama</a></li>
     <li><a href="#-instalasi--penggunaan">Instalasi & Penggunaan</a></li>
     <li><a href="#-galeri-antarmuka">Galeri Antarmuka</a></li>
@@ -42,23 +49,25 @@
 
 ---
 
+<a id="deskripsi-singkat"></a>
 ## 📖 Deskripsi Singkat
 
-**App-Antrian** adalah solusi antrian digital modern yang dikembangkan khusus untuk **Direktorat Metrologi**. Aplikasi ini dirancang untuk mengatasi antrian manual yang semrawut, mempercepat alur layanan publik, dan menyajikan informasi antrian secara transparan dan *real-time*.
+**App-Antrian** adalah aplikasi manajemen antrian digital yang dirancang khusus untuk **Direktorat Metrologi**. Sistem ini menggantikan metode antrian manual dengan solusi berbasis teknologi yang menampilkan informasi panggilan secara *real-time* di layar TV dan panel operator.
 
-Dibangun di atas ekosistem **Electron**, aplikasi ini menjamin stabilitas desktop app dengan kemudahan pengembangan web.
-
-> *"Melayani lebih cepat, lebih tertata, dan lebih modern."*
+Tujuan utama sistem ini adalah meningkatkan kualitas pelayanan masyarakat agar lebih **tertib, transparan, dan cepat**.
 
 ---
 
+<a id="struktur-sistem-aplikasi"></a>
 ## 🧩 Struktur Sistem Aplikasi
 
-Aplikasi ini menggunakan arsitektur terdistribusi lokal yang menghubungkan tiga komponen utama:
+Sistem ini menggunakan arsitektur *client-server* lokal yang terdiri dari 3 modul utama. Berikut adalah alur kerjanya:
 
 ```mermaid
 graph TD;
-    A[🎟️ Kiosk App] -->|Input Data| B(⚙️ Database / Server);
-    B -->|Real-time Update| C[🖥️ Admin App];
-    B -->|Real-time Update| D[📺 Display TV];
-    C -->|Kontrol Panggilan| B;
+    User((👤 Pengunjung)) -->|Ambil Tiket| KIOSK[🎟️ Kiosk App];
+    KIOSK -->|Simpan Data| DB[(🗄️ Database/Server)];
+    DB -->|Sync Realtime| ADMIN[🖥️ Admin Operator];
+    DB -->|Sync Realtime| DISPLAY[📺 Display TV];
+    ADMIN -->|Panggil/Skip| DB;
+    DISPLAY -.->|Voice Announcer| User;
