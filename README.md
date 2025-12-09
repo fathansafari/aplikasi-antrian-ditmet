@@ -1,6 +1,5 @@
 <div align="center">
   <a href="https://github.com/username/repo-name">
-    <img src="https://via.placeholder.com/150x150.png?text=Logo+Antrian" alt="Logo" width="120" height="120">
   </a>
 
   <h1 align="center">📌 App-Antrian</h1>
